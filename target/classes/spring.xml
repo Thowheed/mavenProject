@@ -1,0 +1,24 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="dev" class="com.m1.Dev" autowire="byName">
+        <!-- <property name="age" value="12"/> -->
+        <property name = "lap" ref="lap" />
+        <!-- we give id of lap in bean so to get the object  so we are wiring lap object into dev -->
+        <constructor-arg index = "0" value ="14"/>
+
+        <!-- <constructor-arg ref="lap"/> -->
+
+        <!-- <property name="com" ref="lap"/>  -->
+        <!-- we are manually wiring but not autowiring so we are using autowire in bean -->
+        
+    </bean>
+    <!-- <bean id="lap" class="com.m1.Laptop"></bean> -->
+
+    <!-- autowiring: if we give byName we can take id out else we can give byType in autowire eventhough we have issue when have two bean
+    but we can use primary="true" -->
+    <bean id="com" class="com.m1.Laptop"></bean>
+    <bean id="com1" class="com.m1.Desktop"></bean>
+</beans>
